@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!-- Referencias a componentes UI de JSF -->
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<h:head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	
+		<title>Student Tracker App</title>
+		
+		<!-- Forma de cargar un archivo CSS mediante JSF -->
+		<!-- El archivo tiene que estar en la ruta "/webapp/resources/css" -->
+		<h:outputStylesheet library="css" name="style.css" />
+		<h:outputStylesheet library="css" name="add-student-style.css" />
+	</h:head>
+	
+	<h:body>
+		<div id="wrapper">
+			<div id="header">
+				<h2>FooBar University</h2>
+			</div>
+		</div>
+	
+		<div id="container">
+			<h3>Add Student</h3>
+			
+			<h:messages globalOnly="true" />
+			
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel>First Name:</h:outputLabel> <h:inputText value="#{student.firstName}" />
+					
+					<h:outputLabel>Last Name:</h:outputLabel> <h:inputText value="#{student.lastName}" />
+					
+					<h:outputLabel>Email:</h:outputLabel> <h:inputText value="#{student.email}" />
+					
+					<h:outputLabel/>
+					<h:commandButton value="Save" styleClass="save" action="#{studentController.addStudent(student)}" />
+				</h:panelGrid>
+			</h:form>
+			
+			<p><h:outputLink value="list-students.xhtml">Back to List</h:outputLink></p>
+			
+		</div>
+	</h:body>
+</html>

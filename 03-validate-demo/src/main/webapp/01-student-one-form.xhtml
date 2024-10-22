@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!-- Referencias a componentes UI de JSF -->
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+	<!-- Cuando la página se procese, los componentes UI de JSF serán renderizados a elementos HTML -->
+
+	<h:head>
+		<title>Student One Registration Form</title>
+		
+		<style>
+			.error {
+				color: red
+			}
+		</style>
+	</h:head>
+
+	<h:body>
+		<h:form>
+			<!-- Display validation error messages if present -->
+			<h:messages styleClass="error" />
+		
+			<!-- Campo opcional -->
+			First Name: <h:inputText value="#{studentOne.firstName}" label="First Name" />
+			
+			<br/><br/>
+			
+			<!-- Campo obligatorio -->
+			Last Name: <h:inputText value="#{studentOne.lastName}" label="Last Name" required="true"/>
+			
+			<br/><br/>
+			
+			<!-- Campo obligatorio -->
+			Email: <h:inputText value="#{studentOne.email}" label="Email" required="true"/>
+			
+			<br/><br/>
+			
+			<!-- JSF will send to "01-student-one-response.xhtml" -->
+			<h:commandButton value="Submit" action="01-student-one-response" />
+		</h:form>
+	</h:body>
+</html>

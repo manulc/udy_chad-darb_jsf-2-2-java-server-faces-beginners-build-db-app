@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!-- Referencias a componentes UI de JSF -->
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<!-- Cuando la página se procese, los componentes UI de JSF serán renderizados a elementos HTML -->
+
+	<h:head>
+		<title>Student Four Registration Form</title>
+		
+		<style>
+			.error {
+				color: red
+			}
+		</style>
+	</h:head>
+
+	<h:body>
+		<h:form>
+			First Name: <h:inputText value="#{studentFour.firstName}" label="First Name" />
+			
+			<br/><br/>
+			
+			Last Name: <h:inputText value="#{studentFour.lastName}" label="Last Name" />
+
+			
+			<br/><br/>
+			
+			<!-- Con el atributo "validatorMessage" personalizamos el mensaje de error -->
+			Phone Number: <h:inputText value="#{studentFour.phoneNumber}" label="Phone Number" id="phone_number"
+						  validatorMessage="Phone number must follow xxx-xxx-xxxx">
+							
+							<!-- Componente de JSF para validar expresiones regulares -->
+						 	<f:validateRegex pattern="\d{3}-\d{3}-\d{4}" />
+						 	
+						 </h:inputText>
+						 
+			<!-- Display validation error messages for the field if present -->
+			<!-- En el atributo "for" indicamos el id del input para establecer la asociación entre ese input y el mensaje de error -->
+			<h:message for="phone_number" styleClass="error" />
+			
+			<br/><br/>
+			
+			<!-- JSF will send to "04-student-four-response.xhtml" -->
+			<h:commandButton value="Submit" action="04-student-four-response" />
+		</h:form>
+	</h:body>
+</html>

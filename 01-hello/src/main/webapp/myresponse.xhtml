@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<!-- Referencias a componentes UI de JSF -->
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+	<!-- Cuando la página se procese, los componentes UI de JSF serán renderizados a elementos HTML -->
+	
+	<h:head>
+		<title>Hello World - Response</title>
+	</h:head>
+	
+	<h:body>
+		<!-- JSF Expression Language: "#{userName}" -> Accede y obtiene el contenido o valor del atibuto "userName" de la petición http -->
+		Hello, #{userName}
+	</h:body>
+</html>

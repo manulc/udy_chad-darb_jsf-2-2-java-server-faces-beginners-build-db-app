@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<!-- Referencias a componentes UI de JSF -->
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<!-- Cuando la página se procese, los componentes UI de JSF serán renderizados a elementos HTML -->
+
+	<h:head>
+		<title>Student List Demo</title>
+	</h:head>
+	
+	<h:body>
+		<h3>Student List Demo</h3>
+		
+		<hr/>
+		
+		<ul>
+			<!-- componente de JSF que nos permite iterar sobre una colección (array, lista, ...) -->
+			<ui:repeat var="student" value="#{studentDataBean.students}">
+				<li>#{student.firstName} #{student.lastName}</li>
+			</ui:repeat>
+		</ul>
+	</h:body>
+</html>

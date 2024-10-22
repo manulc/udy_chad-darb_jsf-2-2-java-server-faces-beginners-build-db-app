@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<!-- Referencias a componentes UI de JSF -->
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
+	<!-- Cuando la página se procese, los componentes UI de JSF serán renderizados a elementos HTML -->
+	
+	<h:head>
+		<title>Student Registration Form</title>
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<!-- JSF Expression Language: "#{studentTwo.firstName}": Accede u obtiene el valor de la propiedad del Managed Bean de JSF "student" según corresponda.
+				 Para ello, JSF invocará de forma implícita al método getter o setter de la propiedad según corresponda. -->
+			First Name: <h:inputText value="#{student.firstName}" />
+			
+			<br/><br/>
+			
+			Last Name: <h:inputText value="#{student.lastName}" />
+			
+			<br/><br/>
+			
+			<!-- JSF will send to page "01-student-response.xhtml" -->
+			<h:commandButton value="Submit" action="01-student-response" />
+		</h:form>
+	</h:body>
+</html>

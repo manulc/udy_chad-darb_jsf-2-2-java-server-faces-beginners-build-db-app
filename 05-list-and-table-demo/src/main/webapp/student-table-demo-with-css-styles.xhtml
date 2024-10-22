@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<!-- Referencias a componentes UI de JSF -->
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<!-- Cuando la página se procese, los componentes UI de JSF serán renderizados a elementos HTML -->
+
+	<h:head>
+		<title>Student Table Demo</title>
+		
+		<!-- Forma de cargar un archivo CSS mediante JSF -->
+		<!-- El archivo tiene que estar en la ruta "/webapp/resources/css" -->
+		<h:outputStylesheet library="css" name="student-table-demo.css" />
+	</h:head>
+	
+	<h:body>
+		<h3>Student Table Demo</h3>
+		
+		<hr/>
+		
+		<!-- Crea una tabla mediante componentes de JSF -->
+		<!-- Este componente de JSF también itera sobre una colección (array, lista, ...) -->
+		<!-- "styleClass" -> Aplica clases css a la tabla; "headerClass" -> Aplica clases css a la cabecera de la tabla; "rowClasses" -> Aplica clases css a las filas de la tabla -->
+		<h:dataTable var="student" value="#{studentDataBean.students}"
+			styleClass="demo-table" headerClass="demo-table-header" rowClasses="demo-table-odd-row,demo-table-even-row">
+			
+			<!-- Columna para el nombre -->
+			<h:column>
+				<!-- the column header -->
+				<f:facet name="header">First Name</f:facet>
+				
+				<!-- the value of each row -->
+				#{student.firstName}
+			</h:column>
+			
+			<!-- Columna para el apellido -->
+			<h:column>
+				<!-- the column header -->
+				<f:facet name="header">Last Name</f:facet>
+				
+				<!-- the value of each row -->
+				#{student.lastName}
+			</h:column>
+			
+			<!-- Columna para el email -->
+			<h:column>
+				<!-- the column header -->
+				<f:facet name="header">Email</f:facet>
+				
+				<!-- the value of each row -->
+				#{student.email}
+			</h:column>
+			
+		</h:dataTable>
+	</h:body>
+</html>
